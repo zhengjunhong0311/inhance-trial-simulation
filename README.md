@@ -20,6 +20,12 @@ This project reproduces the statistical workflow of the INHANCE trial — a real
     ├── requirements.txt
     └── .gitignore
 
+## Key Figure
+
+![Interim dose selection](dose_selection.png)
+
+*Interim dose selection based on ANCOVA-adjusted LS Mean differences (red: selected doses, dashed red line: threshold).*
+
 ## Methods
 
 ### Randomization
