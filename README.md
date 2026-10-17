@@ -51,11 +51,17 @@ This project reproduces the complete statistical workflow of the INHANCE trial �
 - Automated 8-rule dose selection algorithm.
 
 ### 3. Seamless Inference & Multiplicity Control
-To demonstrate the necessity of multiplicity adjustment in seamless designs, we simulated 300 trials under the null hypothesis. Selecting the top two doses at the interim and pooling data without adjustment causes the Family-Wise Error Rate (FWER) to inflate to **12.33%**, well above the nominal 5%. 
 
-Applying a Bonferroni correction (α/4 = 0.0125) successfully controls the FWER to **3.33%**.
+To demonstrate the necessity of multiplicity adjustment in adaptive seamless designs, we simulated 10,000 trials under the null hypothesis (involving 2 endpoints × 2 selected doses = 4 comparisons). 
 
-![FWER Simulation](fwer_simulation.png)
+As shown in the figure below:
+- **Naive Pooling** (directly merging stages without adjustment) causes the Family-Wise Error Rate (FWER) to inflate severely to **19.70%**.
+- **Bonferroni correction** (α/4 = 0.0125) successfully controls the FWER but is overly conservative.
+- **Fisher's Combination Test** (combining stage-wise p-values) also controls the error rate near the nominal 5% level while theoretically retaining higher statistical power by utilizing both stages' information.
+
+![FWER Simulation](fwer_simulation_advanced.png)
+
+*Note: Error bars represent the 95% Monte Carlo confidence intervals based on 10,000 simulations.*
 
 ## Quick Start
 
