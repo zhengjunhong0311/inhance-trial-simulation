@@ -16,7 +16,7 @@ from . import config
 def get_lsmean_diff(
     data: pd.DataFrame,
     endpoint: str,
-    ref: str = "Placebo",
+    ref: str = config.REF_DRUG_PBO,  # <-- 改这里
 ) -> pd.DataFrame:
     """
     Fit ANCOVA and extract LS Mean difference vs reference group.
