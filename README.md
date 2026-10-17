@@ -13,24 +13,28 @@ This project reproduces the complete statistical workflow of the INHANCE trial �
 
 ## Project Structure
 
-    inhance-trial-simulation/
-    ├── src/                        # Reusable Python modules
-    │   ├── config.py               # Global parameters
-    │   ├── randomization.py        # Stratified block randomization
-    │   ├── simulate.py             # Baseline and endpoint simulations
-    │   ├── analysis.py             # ANCOVA and threshold computation
-    │   ├── dose_selection.py       # 8-rule dose selection logic
-    │   └── sample_size.py          # Sample size and power functions
-    ├── tests/                      # Unit tests (pytest)
-    ├── notebooks/                  
-    ├── 01_randomization.ipynb
-    ├── 02_endpoints.ipynb
-    ├── 03_interim_analysis.ipynb
-    ├── 04_sample_size.ipynb
-    ├── 05_seamless_inference.ipynb # FWER simulation
-    ├── dose_selection.png
-    ├── requirements.txt
-    └── .gitignore
+   inhance-trial-simulation/
+├── src/                        # Reusable Python modules
+│   ├── config.py               # Global parameters & reference drugs
+│   ├── randomization.py        # Stratified block randomization
+│   ├── simulate.py             # Baseline and endpoint simulations
+│   ├── analysis.py             # ANCOVA and threshold computation
+│   ├── dose_selection.py       # 8-rule dose selection logic
+│   └── sample_size.py          # Sample size and power functions
+├── tests/                      # Unit tests (pytest)
+│   └── test_randomization.py
+├── notebooks/                  # (Optional: move your .ipynb here later)
+├── 01_randomization.ipynb
+├── 02_endpoints.ipynb
+├── 03_interim_analysis.ipynb
+├── 04_sample_size.ipynb
+├── 05_seamless_inference.ipynb # FWER simulation
+├── 06_final_oc_and_fwer.ipynb  # Advanced 10k OC simulation
+├── dose_selection.png
+├── fwer_simulation.png
+├── requirements.txt
+├── LICENSE
+└── .gitignore
 
 ## Key Figure
 
