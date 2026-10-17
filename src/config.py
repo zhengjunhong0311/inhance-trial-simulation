@@ -77,3 +77,10 @@ DELTA_NONINFERIORITY = -55    # mL, non-inferiority margin
 ALPHA = 0.05
 POWER_TARGET = 0.85
 N_COMPARISONS = 4             # Bonferroni correction divisor
+
+# ============================================================================
+# Reference drugs for Interim Analysis
+# ============================================================================
+REF_DRUG_TIO = "Tiotropium"
+REF_DRUG_FOR = "Formoterol"
+REF_DRUG_PBO = "Placebo"
