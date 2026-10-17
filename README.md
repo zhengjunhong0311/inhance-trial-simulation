@@ -55,7 +55,7 @@ To demonstrate the necessity of multiplicity adjustment in seamless designs, we 
 
 Applying a Bonferroni correction (α/4 = 0.0125) successfully controls the FWER to **3.33%**.
 
-![FWER Simulation](outputs/figures/fwer_simulation.png)
+![FWER Simulation](fwer_simulation.png)
 
 ## Quick Start
 
