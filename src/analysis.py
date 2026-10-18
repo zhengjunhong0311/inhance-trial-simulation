@@ -91,7 +91,7 @@ def compute_thresholds(
     tuple
         (X, Y, X_candidates, Y_candidates)
     """
-       X_candidates = [
+    X_candidates = [
         trough_res.loc["Tiotropium", "LS_Mean_Diff"],
         trough_res.loc["Formoterol", "LS_Mean_Diff"],
         mcid,
