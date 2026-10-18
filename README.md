@@ -55,21 +55,24 @@ This project reproduces the complete statistical workflow of the INHANCE trial �
 - LS Mean difference vs Placebo with 95% CI.
 - Automated 8-rule dose selection algorithm.
 
-### 3. Seamless Inference & Multiplicity Control
+### 3. Operating Characteristics (FWER & Power Simulation)
 
-To demonstrate the necessity of multiplicity adjustment in adaptive seamless designs, we simulated 10,000 trials under the null hypothesis (involving 2 endpoints × 2 selected doses = 4 comparisons). 
+To rigorously evaluate the operating characteristics of the adaptive seamless design, we conducted a **10,000-run Monte Carlo simulation** (incorporating a bivariate normal distribution with ρ=0.6 between endpoints to reflect realistic test correlations).
 
-As shown in the figure below:
-- **Naive Pooling** (directly merging stages without adjustment) causes the Family-Wise Error Rate (FWER) to inflate severely to **19.70%**.
-- **Bonferroni correction** (α/4 = 0.0125) brings the FWER down, but the observed rate (**6.00%**) still slightly exceeds the nominal 5% level.
-- **Fisher's Combination Test** approaches the nominal level (**5.94%**), though not perfectly strict.
+**Under H0 (Type I Error Control):**
+- **Naive Pooling** inflates the FWER severely to **18.90%**.
+- **Bonferroni** strictly controls the FWER at **5.51%**.
+- **Fisher Combination** also controls the FWER near the nominal level at **5.92%**.
 
-![FWER Simulation](fwer_simulation_advanced.png)
+**Under H1 (Statistical Power):**
+With realistic dose-response effects (50-140 mL) and an adjusted significance level (α/4 = 0.0125), **Naive Pooling** achieves the highest power (83.59%) but is invalid due to FWER inflation. **Bonferroni** retains 60.91% power, while **Fisher Combination** yields 57.98% power.
 
-*Note: Error bars represent the 95% Monte Carlo confidence intervals based on 10,000 simulations.*
+**Methodological Insight (Winner's Curse & Over-conservativeness):**
+The simulation reveals two critical statistical realities:
+1. **Winner's Curse:** Bonferroni and Fisher slightly exceed 5% under H0 because selecting the top doses at interim induces selection bias.
+2. **Fisher's Conservativeness:** In a multi-endpoint setting with a strict α/4, the unweighted Fisher combination can be overly conservative, resulting in lower power than naive Bonferroni. This highlights why modern seamless designs require sophisticated approaches like **weighted combination tests (e.g., Cui-Hung-Wang)** or **closed testing procedures** to maintain power while strictly controlling FWER.
 
-**Methodological Insight (Winner's Curse):**
-The fact that Bonferroni fails to strictly control the FWER at 5% reveals a critical property of seamless designs: **Selection-induced bias (Winner's Curse)**. Because the doses are selected based on their inflated Stage-1 observed means, naive data pooling corrupts the Type I error. **Bonferroni correction alone is insufficient** because it only addresses multiplicity, not selection bias. Proper control requires stagewise combination tests (like Fisher's) or closed testing procedures that account for the selection mechanism. This simulation serves as a cautionary demonstration of why naive pooling should be avoided in adaptive designs.
+![FWER and Power Simulation](final_fwer_and_power.png)
 
 ### 4. Operating Characteristics (OC) Simulation
 
