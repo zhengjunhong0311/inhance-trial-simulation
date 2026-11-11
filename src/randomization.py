@@ -53,6 +53,18 @@ def stratified_block_randomization(
     ICH E9(R1): Addendum on Estimands and Sensitivity Analysis.
     药物临床试验适应性设计指导原则（试行）.
     """
+    
+    # =========================================================================
+    # 防御性编程：参数合法性校验 (解决代码审查提出的异常捕获问题)
+    # =========================================================================
+    if n_total % len(strata) != 0:
+        raise ValueError("n_total 必须能被分层数量 (strata) 整除")
+        
+    for bl in block_lengths:
+        if bl % n_groups != 0:
+            raise ValueError(f"区组长度 {bl} 必须是治疗组数 {n_groups} 的倍数")
+    # =========================================================================
+
     rng = np.random.default_rng(seed)
     n_per_stratum = n_total // len(strata)
 
@@ -74,9 +86,6 @@ def stratified_block_randomization(
 
         block_id = 1
         for bl in blocks:
-            assert bl % n_groups == 0, \
-                f"Block length {bl} must be a multiple of {n_groups}"
-
             reps = bl // n_groups
             group_seq = np.repeat(np.arange(1, n_groups + 1), reps)
             rng.shuffle(group_seq)
