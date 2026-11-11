@@ -57,8 +57,14 @@ This project reproduces the complete statistical workflow of the INHANCE trial �
 
 ### 3. Operating Characteristics (FWER & Power Simulation)
 
-To rigorously evaluate the operating characteristics of the adaptive seamless design, we conducted a **10,000-run Monte Carlo simulation** (incorporating a bivariate normal distribution with ρ=0.6 between endpoints to reflect realistic test correlations).
+To evaluate the performance of adaptive seamless designs, we conducted a 10,000-run Monte Carlo simulation (incorporating a bivariate normal distribution with ρ=0.6 between endpoints). 
 
+**Important Methodological Caveat:** Because the doses are selected based on interim data, standard pooled analysis is subject to selection-induced bias (Winner's Curse). Our simulation demonstrates that:
+- **Naive Pooling** inflates FWER to **18.90%**.
+- **Bonferroni** brings it down to **5.51%**, and **Fisher Combination** yields **5.92%**.
+- **Note:** The slight overshoot above 5% for Bonferroni and Fisher highlights that simple threshold adjustment does not fully remedy the selection bias in adaptive seamless designs. Strict FWER control requires more sophisticated closed testing procedures or stagewise combination tests with pre-specified weights (e.g., Cui-Hung-Wang), rather than simple post-hoc Bonferroni.
+
+![FWER and Power Simulation](final_fwer_and_power.png)
 **Under H0 (Type I Error Control):**
 - **Naive Pooling** inflates the FWER severely to **18.90%**.
 - **Bonferroni** strictly controls the FWER at **5.51%**.
