@@ -68,7 +68,6 @@ To evaluate the performance of adaptive seamless designs, we conducted a 10,000-
 **Under H0 (Type I Error Control):**
 - **Naive Pooling** inflates the FWER severely to **18.90%**.
 - **Bonferroni** controls the FWER near the nominal level (5.51%; MC standard error ≈ 0.23%), and **Fisher Combination** yields 5.92%.
-- **Fisher Combination** also controls the FWER near the nominal level at **5.92%**.
 
 **Under H1 (Statistical Power):**
 With realistic dose-response effects (50-140 mL) and an adjusted significance level (α/4 = 0.0125), **Naive Pooling** achieves the highest power (83.59%) but is invalid due to FWER inflation. **Bonferroni** retains 60.91% power, while **Fisher Combination** yields 57.98% power.
@@ -87,8 +86,7 @@ To evaluate the operating characteristics under a realistic dose-response relati
 - **Correct Selection Rate at Interim:** 83.6% (reflects the uncertainty of selecting the true maximum dose due to sampling noise at N=120/group).
 - **Overall Power (Success Rate):** 96.8% (with Bonferroni adjustment α/4 = 0.0125).
 
-*Note: The analytical sample size calculation (N=518/group) does not account for the variance reduction from ANCOVA baseline adjustment. In practice, adjusting for FEV1/FVC yields a variance deflation factor, potentially reducing the required sample size. This simulation evaluates operating characteristics based on the unadjusted SD (270 mL) for a conservative estimation.*
-
+_Note: The analytical sample size (N=518/group) is based on a one-sided α/4 = 0.0125, 85% power, non-inferiority margin 55 mL, and assumed true difference 0 mL, using the unadjusted SD (270 mL). It does not account for variance reduction from ANCOVA baseline adjustment. This simulation evaluates operating characteristics based on the unadjusted SD for a conservative estimation._
 ## Quick Start
 
     git clone https://github.com/zhengjunhong0311/inhance-trial-simulation.git
