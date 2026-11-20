@@ -67,7 +67,7 @@ To evaluate the performance of adaptive seamless designs, we conducted a 10,000-
 ![FWER and Power Simulation](final_fwer_and_power.png)
 **Under H0 (Type I Error Control):**
 - **Naive Pooling** inflates the FWER severely to **18.90%**.
-- **Bonferroni** strictly controls the FWER at **5.51%**.
+- **Bonferroni** controls the FWER near the nominal level (5.51%; MC standard error ≈ 0.23%), and **Fisher Combination** yields 5.92%.
 - **Fisher Combination** also controls the FWER near the nominal level at **5.92%**.
 
 **Under H1 (Statistical Power):**
