@@ -47,7 +47,7 @@ This project reproduces the complete statistical workflow of the INHANCE trial â
 
 ### 1. Randomization & Baseline
 - Stratified block randomization (smoking status; block length 7 or 14).
-- Parametric baseline simulation with group-mean correction.
+- Parametric baseline simulation matching published Table 1 summary statistics (overall mean/SD).
 - Balance assessment via ANOVA, chi-square, and SMD.
 
 ### 2. Interim Analysis
